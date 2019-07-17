@@ -1,5 +1,5 @@
 def odd(self, product):
-    if product/:
+    if product:
         return True
 
 sequence = []
