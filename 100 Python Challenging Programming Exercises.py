@@ -59,20 +59,20 @@
 # Also include simple test function to test the class methods.
 
 
-class String:
-    # def __init__(self):
-    #     self.string = ''
-
-    def getString(self):
-        self.string = input('Enter a string here: ')
-
-    def printString(self):
-        print(self.string.upper())
-
-
-x = String()
-x.getString()
-x.printString()
+# class String:
+#     # def __init__(self):
+#     #     self.string = ''
+#
+#     def getString(self):
+#         self.string = input('Enter a string here: ')
+#
+#     def printString(self):
+#         print(self.string.upper())
+#
+#
+# x = String()
+# x.getString()
+# x.printString()
 ##############################################
 # Question 6
 # A program that calculates and prints the value according to the given formula:
@@ -138,11 +138,87 @@ x.printString()
 
 ###############################################
 # Question 11
+# A program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether
+# they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
 
+# bin_num = input('Enter binary numbers here :')
+# bin_num = bin_num.split(',')
+# lists = []
+# for num in bin_num:
+#     if (int(num, 2)) % 5 == 0:
+#         print(num, end=',')
 
+###############################################
+# Question 12
+# Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of
+# the number is an even number. The numbers obtained should be printed in a comma-separated sequence on a single line.
 
+# for num in range(1000, 3001):
+#     if num % 2 == 0:
+#         print(num, end=',')
 
+##############################################
+# Question 13
+# A program that accepts a sentence and calculate the number of letters and digits.
 
+# sentence = input('Enter a sentence containing letters and digits here : ')
+# letters, digits = 0, 0
+# for character in sentence:
+#     if character.isalpha():
+#         letters += 1
+#     elif character.isdigit():
+#         digits += 1
+# print('Letters = {}'.format(letters))
+# print('Digits = %s' % digits)
 
+##############################################
+# Question 14
+# A program that computes the value of b+bb+bbb+bbbb with a given digit as the value of b.
 
+# b = input('Enter a value digit here : ')
+#
+# print(int(b) + int(b+b) + int(b+b+b) + int(b+b+b+b))
 
+##############################################
+# Question 15
+# A program which uses list comprehension to square each odd number in a list.
+# The list is input by a sequence of comma-separated numbers.
+
+# string = input('Enter a list of comma-separated numbers here : ')
+# nums = string.split(',')
+# int_num = [int(x) for x in nums]
+# output = [x**2 for x in int_num if x % 2 != 0]
+# print(output)
+
+##############################################
+# Question 16
+# Write a program that computes the net amount of a bank account based a transaction log from console input.
+# The transaction log format is shown as following:
+# D 100
+# W 200
+# D means deposit while W means withdrawal. Suppose the following input is supplied to the program:
+# D 300
+# D 300
+# W 200
+# D 100
+# Then, the output should be: 500
+print('INSTRUCTION: Enter "=" to output ')
+withdrawal, deposit = [], []
+while True:
+    transaction = input('Enter your transaction here : ')
+
+    if transaction == '=':
+        break
+    else:
+        if transaction.startswith('D' or 'd'):
+            trans_split = transaction.split(' ')
+            deposit.append(int(trans_split[1]))
+        elif transaction.startswith('W' or 'w'):
+            trans_split = transaction.split(' ')
+            withdrawal.append(int(trans_split[1]))
+        else:
+            print('Ooops! You\'ve entered an invalid transaction')
+
+sum_W, sum_D = sum(withdrawal), sum(deposit)
+Output = sum_D - sum_W
+print('Output = %s' % Output)
